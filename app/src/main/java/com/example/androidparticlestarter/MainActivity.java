@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
     long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
 
+    String him0 = "3";
+    String him = "6";
+    String him1 = "10";
+    String him2 = "13";
+    String him3 = "16";
+    String him4 = "20";
     Handler handler;
 
     int Seconds, Minutes, MilliSeconds ;
@@ -115,12 +121,19 @@ public class MainActivity extends AppCompatActivity {
 
                     MilliSeconds = (int) (UpdateTime % 1000);
 
-                    txtView.setText("" + Minutes + ":"
-                            + String.format("%02d", Seconds) + ":"
-                            + String.format("%03d", MilliSeconds));
+//                    txtView.setText("" + Minutes + ":"
+//                            + String.format("%02d", Seconds) + ":"
+//                            + String.format("%03d", MilliSeconds));
+                    txtView.setText(String.format("%02d", Seconds));
+
+                    if (String.valueOf(Seconds).equals(him0)){
+                        happy0("hppy0");
+                    }
+//                    
 
                     handler.postDelayed(this, 0);
                 }
+
 
             };
 
@@ -129,8 +142,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         });
 
+//        if (txtView.equals(him)){
+//            happy0();
+//        }
 
 
         // 1. Initialize your connection to the Particle API
@@ -140,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
         getDeviceFromCloud();
 
     }
+
+
 
 
 
@@ -170,5 +189,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void happy0(String Answer){
+//        if(Answer.equals(him)){
+//
+//        }
+            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction(""+ Answer, functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
