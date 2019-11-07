@@ -52,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
         txtView = findViewById(R.id.showTime);
         long starttime = 0;
 
-
+        long millis = System.currentTimeMillis() - starttime;
+        int seconds = (int) (millis / 1000);
+        int minutes = seconds / 60;
+        seconds     = seconds % 60;
+        txtView.setText(String.format("%d:%02d", minutes, seconds));
         // 1. Initialize your connection to the Particle API
         ParticleCloudSDK.init(this.getApplicationContext());
 
