@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -126,10 +127,38 @@ public class MainActivity extends AppCompatActivity {
 //                            + String.format("%03d", MilliSeconds));
                     txtView.setText(String.format("%02d", Seconds));
 
-                    if (String.valueOf(Seconds).equals(him0)){
-                        happy0("hppy0");
+
+
+                    try {
+
+                        if (String.valueOf(Seconds).equals(him0)){
+                            happy0();
+                        }
+                        else if (String.valueOf(Seconds).equals(him)){
+                            happy();
+                        }
+                        else if (String.valueOf(Seconds).equals(him1)){
+                            happy1();
+                        }
+                        else if (String.valueOf(Seconds).equals(him2)){
+                            happy2();
+                        }
+                        else if (String.valueOf(Seconds).equals(him3)){
+                            happy3();
+                        }
+                        else if (String.valueOf(Seconds).equals(him4)){
+                            Angry();
+                        }
+
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), ""+e, Toast.LENGTH_SHORT).show();
                     }
-//                    
+
+
+
+
+
+//
 
                     handler.postDelayed(this, 0);
                 }
@@ -191,11 +220,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void happy0(String Answer){
+    public void happy0(){
 //        if(Answer.equals(him)){
 //
 //        }
-            Log.d(TAG, "happy0:");
+//            Log.d(TAG, "happy0:");
         Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
             @Override
             public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
@@ -204,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 List<String> functionParameters = new ArrayList<String>();
 //                functionParameters.add();
                 try {
-                    mDevice.callFunction(""+ Answer, functionParameters);
+                    mDevice.callFunction("hppy0", functionParameters);
 
                 } catch (ParticleDevice.FunctionDoesNotExistException e1) {
                     e1.printStackTrace();
@@ -229,6 +258,194 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void Angry(){
+//        if(Answer.equals(him)){
+//
+//        }
+//            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction("Angry", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+    public void happy(){
+//        if(Answer.equals(him)){
+//
+//        }
+//            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction("hppy", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+
+    public void happy1(){
+//        if(Answer.equals(him)){
+//
+//        }
+//            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction("hppy1", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+
+    public void happy2(){
+//        if(Answer.equals(him)){
+//
+//        }
+//            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction("hppy2", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+
+    public void happy3(){
+//        if(Answer.equals(him)){
+//
+//        }
+//            Log.d(TAG, "happy0:");
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+                // put your logic here to talk to the particle
+                // --------------------------------------------
+                List<String> functionParameters = new ArrayList<String>();
+//                functionParameters.add();
+                try {
+                    mDevice.callFunction("hppy3", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "Success: Turned light green!!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                // put your error handling code here
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
 
 
 
