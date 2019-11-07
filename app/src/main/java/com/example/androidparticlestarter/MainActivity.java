@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayAdapter<String> adapter ;
     SeekBar seekBar;
+    int progresss;
 
     // MARK: Particle device
     private ParticleDevice mDevice;
@@ -104,7 +105,17 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 showAmountOfM.setText("Time Slow Down By: "+progress);
-                seekBar.setMax(100);
+                seekBar.setMax(5);
+
+                progresss = progress;
+
+//                him = String.valueOf(Integer.parseInt(him) -progress);
+//                him0 = String.valueOf(Integer.parseInt(him0) -progress);
+//                him1 = String.valueOf(Integer.parseInt(him1) -progress);
+//                him2 = String.valueOf(Integer.parseInt(him2) -progress);
+//                him3 = String.valueOf(Integer.parseInt(him3) -progress);
+//                him4 = String.valueOf(Integer.parseInt(him4) -progress);
+//                Log.d(TAG, "onProgressChanged:"+ him);
             }
         });
 
@@ -157,6 +168,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                     try {
+                        him = String.valueOf(Integer.parseInt(him) -progresss);
+                        him0 = String.valueOf(Integer.parseInt(him0) -progresss);
+                        him1 = String.valueOf(Integer.parseInt(him1) -progresss);
+                        him2 = String.valueOf(Integer.parseInt(him2) -progresss);
+                        him3 = String.valueOf(Integer.parseInt(him3) -progresss);
+                        him4 = String.valueOf(Integer.parseInt(him4) -progresss);
+                        Log.d(TAG, "run: "+ him);
+
 
                         if (String.valueOf(Seconds).equals(him0)){
                             happy0();
