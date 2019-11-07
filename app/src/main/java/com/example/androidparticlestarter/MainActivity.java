@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 showAmountOfM.setText("Time Slow Down By: "+progress);
-                seekBar.setMax(5);
+                seekBar.setMax(10);
 
                 progresss = progress;
 
@@ -115,7 +115,12 @@ public class MainActivity extends AppCompatActivity {
                 him2 = String.valueOf(Integer.parseInt(him2) -progress);
                 him3 = String.valueOf(Integer.parseInt(him3) -progress);
                 him4 = String.valueOf(Integer.parseInt(him4) -progress);
+                Log.d(TAG, "onProgressChanged:"+ him0);
                 Log.d(TAG, "onProgressChanged:"+ him);
+                Log.d(TAG, "onProgressChanged:"+ him1);
+                Log.d(TAG, "onProgressChanged:"+ him2);
+                Log.d(TAG, "onProgressChanged:"+ him3);
+
             }
         });
 
@@ -159,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     Seconds = Seconds % 60;
 
                     MilliSeconds = (int) (UpdateTime % 1000);
+
 
 //                    txtView.setText("" + Minutes + ":"
 //                            + String.format("%02d", Seconds) + ":"
