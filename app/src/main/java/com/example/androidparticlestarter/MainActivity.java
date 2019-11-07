@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     // MARK: Particle Publish / Subscribe variables
     private long subscriptionId;
     Button monitorButton;
-    TextView txtView;
+    TextView txtView, showAmountOfM;
 
     long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> ListElementsArrayList ;
 
     ArrayAdapter<String> adapter ;
+    SeekBar seekBar;
 
     // MARK: Particle device
     private ParticleDevice mDevice;
@@ -79,7 +81,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         monitorButton= findViewById(R.id.timerButton);
         txtView = findViewById(R.id.showTime);
+        seekBar = findViewById(R.id.seekBar);
+        showAmountOfM = findViewById(R.id.showMAmount);
 
+
+//        seekBar.setOnSeekBarChangeListener(this);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                showAmountOfM.setText("Time Slow Down By: "+progress);
+                seekBar.setMax(100);
+            }
+        });
 
         handler = new Handler() ;
 
